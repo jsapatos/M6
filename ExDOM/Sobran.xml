@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<disco>
+	<album> 
+        	<autor>Joaquín Sabina</autor> 
+		<titulo>Nos sobran los motivos</titulo> 
+        	<formato>MP3</formato> 
+	</album>
+	<album>
+		<autor>Jhonny Sabina</autor> 
+		<titulo>Nos sobran las arañas</titulo> 
+        	<formato>MP3</formato>
+	</album>
+	<album>
+		<autor>Jordi Sabina</autor> 
+		<titulo>Nos sobran las camas</titulo> 
+        	<formato>MP3</formato>
+	</album>
+	<album>
+		<autor>Xavi Sabina</autor> 
+		<titulo>Nos sobran los dineros</titulo> 
+        	<formato>MP3</formato>
+	</album>
+	<album>
+		<autor>David Sabina</autor> 
+		<titulo>Nos sobran las excusas</titulo> 
+        	<formato>MP3</formato>
+	</album>
+	<album>
+		<autor>Pere Sabina</autor> 
+		<titulo>Nos sobran los coches</titulo> 
+        	<formato>MP3</formato>
+	</album>
+</disco>
+	
