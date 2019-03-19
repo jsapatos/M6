@@ -1,0 +1,61 @@
+
+8.1-//DEP_ROW[last()]
+
+8.2-//DEP_ROW[position()=2]
+
+8.3-count(//DEP_ROW)
+
+8.4-sum(//EMP_ROW/SALARIO/text())
+
+8.5-min(//EMP_ROW/SALARIO/text())
+
+8.6-concat(/EMPLEADOS/EMP_ROW[1]/OFICIO/text()," apellido ",//EMPLEADOS/EMP_ROW[1]/APELLIDO/text())
+
+8.7-//EMP_ROW/EMP_NO[starts-with(.,'73')]/text()
+
+8.8-//EMP_ROW[contains(OFICIO,'DIRECTOR')]
+
+8.9-//EMP_ROW[string-length(OFICIO)>8]
+
+
+-----
+
+
+9.1-//EMP_ROW[last()-1]/APELLIDO/text()
+
+9.2-//EMP_ROW[position()=3]
+
+9.3-count(//EMP_ROW/DEPT_NO/text()='20')
+
+9.4-sum(//EMP_ROW[DEPT_NO='20']/SALARIO/text())
+
+9.5-max(//EMP_ROW[OFICIO='ANALISTA']/SALARIO/text())
+
+9.6-avg(//EMP_ROW[DEPT_NO='10']/SALARIO/text())
+
+9.7-concat(/EMPLEADOS/EMP_ROW[1]/APELLIDO/text() ,' ', /EMPLEADOS/EMP_ROW[1]/OFICIO/text() ,' ', /EMPLEADOS/EMP_ROW[1]/SALARIO/text())
+
+9.8-//EMP_ROW/APELLIDO[starts-with(.,'A')]/text()
+
+9.9-//EMP_ROW[contains(OFICIO,'OR')]/OFICIO/text()
+
+9.10-//EMP_ROW[string-length(APELLIDO)>4]
+
+
+----
+
+10.1-//produc/denominacion/text()|//produc/precio/text()
+
+10.2-//produc[contains(denominacion,'Placa Base')]
+
+10.3-//produc[precio>60 and cod_zona='20']
+
+10.4-//produc[contains(denominacion,'Memoria') and cod_zona='10']
+
+10.5-avg(//produc[contains(denominacion,'Micro')]/precio)
+
+10.6-//produc[number(stock_minimo)>number(stock_actual)]
+
+10.7-//produc[number(precio)=max(//produc/precio)]
+
+10.8-//produc[number(precio)=max(//produc[cod_zona='20']/precio)]

@@ -1,0 +1,61 @@
+
+
+1.1 - 
+for $emple in /EMPLEADOS/EMP_ROW
+where starts-with($emple/OFICIO, 'P')
+return <ofici>{$emple/OFICIO}</ofici>
+
+1.2 - 
+for $ofici in distinct-values(/EMPLEADOS/EMP_ROW/OFICIO)
+return
+    <ofici>{data($ofici)}
+        <cont>{count(/EMPLEADOS/EMP_ROW[OFICIO = $ofici])}</cont>
+    </ofici>
+    
+1.3 - 
+for $depart in distinct-values(/EMPLEADOS/EMP_ROW/DEPT_NO)
+return 
+        <depart>{data($depart)}
+            <cont>{count(/EMPLEADOS/EMPR_ROW[DEPT_NO = $depart])}</cont>
+            <mitja>{(avg(/EMPLEADOS/EMP_ROW[DEPT_NO = $depart]/SALARIO))}</mitja>
+        </depart>
+        
+        
+-----
+
+
+2.1 - 
+for $zone_code in distinct-values(/productos/produc/cod_zona)
+return
+        <zona>{data($zone_code)}
+        <cont_prod>{count(/productos/produc[cod_zona = $zone_code])}</cont_prod>
+        </zona>
+        
+2.2 -
+for $product in /productos/produc
+let $etiqueta:=concat('zona',$product/cod_zona)
+return
+    element {$etiqueta} {data($product/denominacion)}
+
+2.3-
+for $product in distinct-values(/productos/produc/cod_zona)
+
+let $preu:=max(/productos/produc[cod_zona = $product]/precio)
+let $den:=/productos/produc[precio = $preu]/denominacion
+return
+    <denominacion>{$den/text()}</denominacion>
+    
+2.4-
+for $product in /productos/produc
+
+return
+    if (contains($product/denominacion, 'Placa'))
+        then <placa>{data($product)}</placa>
+        
+    else if (contains($product/denominacion, 'Micro'))
+        then <micro>{data($product)}</micro>    
+        
+    else if (contains($product/denominacion, 'Memoria'))
+        then <memoria>{data($product)}</memoria>
+        
+    else <otros> {data($product)} </otros>
